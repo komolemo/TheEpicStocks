@@ -1,0 +1,193 @@
+<style>
+    /* 全体レイアウト */
+    .stock-table {
+        width: 100%;
+        max-width: 900px;
+        margin: 0 auto;
+        font-family: "Segoe UI", sans-serif;
+        color: #333;
+    }
+
+    /* カラムヘッダー */
+    .stock-header {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1.5fr;
+        padding: 10px 15px;
+        background: #f5f5f5;
+        font-weight: bold;
+        border-bottom: 2px solid #ddd;
+    }
+
+    .stock-header .col {
+        font-size: 14px;
+    }
+
+    /* レコード（button） */
+    .stock-row {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1.5fr;
+        padding: 12px 15px;
+        margin: 0;
+        border: none;
+        border-bottom: 1px solid #eee;
+        background: #fff;
+        text-align: left;
+        cursor: pointer;
+        transition: background 0.2s ease;
+    }
+
+    .stock-row:hover {
+        background: #f0f8ff;
+    }
+
+    /* 各セル */
+    .cell {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        font-size: 14px;
+    }
+
+    /* 銘柄名 */
+    .cell.name .label {
+        font-size: 11px;
+        color: #777;
+    }
+
+    .cell.name .value {
+        font-weight: bold;
+        font-size: 15px;
+    }
+
+    .cell.name .code {
+        font-size: 12px;
+        color: #666;
+    }
+
+    /* 現在値 */
+    .cell.price {
+        flex-direction: row;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .cell.price .value {
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .arrow {
+        font-size: 14px;
+        margin-top: 2px;
+    }
+
+    .arrow.up {
+        color: #d00;
+    }
+
+    .arrow.down {
+        color: #0070c0;
+    }
+
+    /* 前日比 */
+    .cell.change .diff {
+        font-weight: bold;
+    }
+
+    .cell.change .rate {
+        font-size: 12px;
+        color: #666;
+    }
+
+    /* 高値安値 */
+    .cell.highlow .high,
+    .cell.highlow .low {
+        font-size: 12px;
+        color: #555;
+    }
+
+    /* スマホ対応 */
+    @media (max-width: 600px) {
+    .stock-header {
+        display: none;
+    }
+
+    .stock-row {
+        grid-template-columns: 1fr;
+        padding: 15px;
+    }
+
+    .cell {
+        margin-bottom: 8px;
+    }
+
+    .cell:last-child {
+        margin-bottom: 0;
+    }
+    }
+</style>
+
+<div class="stock-table">
+
+  <!-- カラム -->
+  <div class="stock-header">
+    <div class="col name">銘柄名</div>
+    <div class="col price">現在値</div>
+    <div class="col change">前日比</div>
+    <div class="col highlow">高値安値</div>
+  </div>
+
+  <!-- レコード（button） -->
+  <button class="stock-row">
+    <!-- 銘柄名 -->
+    <div class="cell name">
+      
+      <div class="value">トヨタ自動車</div>
+      <div class="code">7203</div>
+    </div>
+
+    <!-- 現在値 -->
+    <div class="cell price">
+      <div class="value">3,200</div>
+      <div class="arrow up">▲</div>
+    </div>
+
+    <!-- 前日比 -->
+    <div class="cell change">
+      <div class="diff">+45</div>
+      <div class="rate">+1.42%</div>
+    </div>
+
+    <!-- 高値安値 -->
+    <div class="cell highlow">
+      <div class="high">高値: 3,250</div>
+      <div class="low">安値: 3,150</div>
+    </div>
+  </button>
+
+  <!-- レコード（button） -->
+  <button class="stock-row">
+    <div class="cell name">
+      
+      <div class="value">ソニーグループ</div>
+      <div class="code">6758</div>
+    </div>
+
+    <div class="cell price">
+      <div class="value">12,450</div>
+      <div class="arrow down">▼</div>
+    </div>
+
+    <div class="cell change">
+      <div class="diff">-80</div>
+      <div class="rate">-0.64%</div>
+    </div>
+
+    <div class="cell highlow">
+      <div class="high">高値: 12,600</div>
+      <div class="low">安値: 12,300</div>
+    </div>
+  </button>
+
+</div>
